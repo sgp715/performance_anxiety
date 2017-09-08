@@ -121,23 +121,23 @@ if __name__ == "__main__":
     if len(args) < 2:
         print("Must dir name as cli")
     # files = ["/home/seb/Downloads/house-s1-e1.txt" for i in range(50)]
-    files = get_files(args[1])
-
-    # find threads
-    # test_threads(files, process_thread, 20)
+    if args[1] == "-t":
+        test_threads(files, process_thread, 20)
+        exit()
 
     # open file
-    # test_fun(files, dumby)
-    # test_fun(files, process_async)
-    # test_fun(files, process_thread)
+    files = get_files(args[1])
+    test_fun(files, dumby)
+    test_fun(files, process_async)
+    test_fun(files, process_thread)
 
     # make requests
     urls = ["http://rentashare.com" for i in range(50)]
-    # test_fun(urls, dumby_requests)
-    # test_fun(urls, async_requests)
-    # test_fun(urls, thread_requests)
+    test_fun(urls, dumby_requests)
+    test_fun(urls, async_requests)
+    test_fun(urls, thread_requests)
 
     # computation
-    lists = [[i for i in range(100)] for i in range(50)]
-    # test_fun(lists, dumby_list)
+    lists = [[i for i in range(200)] for i in range(50)]
+    test_fun(lists, dumby_list)
     test_fun(lists, thread_lists)
